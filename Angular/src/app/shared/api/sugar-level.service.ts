@@ -10,15 +10,15 @@ export default class SugarLevelService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<any> {
-    return this.http.get(`${this.SUGARLEVELS_API}`);
+  getAll(): Observable<SugarLevel[]> {
+    return this.http.get<SugarLevel[]>(`${this.SUGARLEVELS_API}`);
   }
 
   get(id: string) {
     return this.http.get(`${this.SUGARLEVELS_API}/${id}`);
   }
 
-  save(sugarLevel: any): Observable<any> {
+  save(sugarLevel: SugarLevel): Observable<any> {
     let result: Observable<Object>;
     if (sugarLevel.id) {
       result = this.http.put(`${this.SUGARLEVELS_API}/${sugarLevel.id}`, sugarLevel);

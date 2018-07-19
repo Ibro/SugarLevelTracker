@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
 
 import SugarLevelService from '../shared/api/sugar-level.service';
 import SugarLevel from '../shared/model/SugarLevel';
@@ -31,7 +30,7 @@ export default class SugarLevelEditComponent implements OnInit, OnDestroy {
             this.sugarLevel.measuredAt = new Date(this.sugarLevel.measuredAt).toISOString();
           } else {
             console.log(`Sugar Level with id '${id}' not found, returning to list`);
-            this.gotoList();
+            this.goToList();
           }
         });
       }
@@ -42,19 +41,19 @@ export default class SugarLevelEditComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  gotoList() {
+  goToList() {
     this.router.navigate(['/sugarlevel-list']);
   }
 
   save(form: any) {
     this.sugarLevelService.save(form).subscribe(result => {
-      this.gotoList();
+      this.goToList();
     }, error => console.error(error));
   }
 
   remove(id: number) {
     this.sugarLevelService.remove(id).subscribe(result => {
-      this.gotoList();
+      this.goToList();
     }, error => console.error(error));
   }
 }

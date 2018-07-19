@@ -13,7 +13,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { AuthInterceptor } from './shared/okta/auth.interceptor';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import SugarLevelListComponent from './sugarlevel-list/sugarlevel-list.component';
 import SugarLevelEditComponent from './sugarlevel-edit/sugar-level-edit.component';
 import SugarLevelService from './shared/api/sugar-level.service';
